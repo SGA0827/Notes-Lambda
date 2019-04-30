@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Auz-Gp-zlI">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Auz-Gp-zlI" customClass="NoteTableViewCell">
                                 <rect key="frame" x="0.0" y="140" width="414" height="722"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="uM7-Gy-vy2" userLabel="Header View">
@@ -40,6 +40,9 @@
                                                 <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qaV-Ca-mW5">
                                                     <rect key="frame" x="340" y="49.5" width="34" height="30"/>
                                                     <state key="normal" title="Save"/>
+                                                    <connections>
+                                                        <action selector="saveNoteButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TIb-Vw-6sV"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                         </stackView>
@@ -53,7 +56,7 @@
                                     </constraints>
                                 </view>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="NoteCell" id="R1b-6C-CeB">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="NoteCell" id="R1b-6C-CeB" customClass="NotesTableViewCell" customModule="Notes__iOS_PT1_" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="173" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="R1b-6C-CeB" id="tMz-bn-zTO">
@@ -72,6 +75,9 @@
                                                         <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q5g-8l-S5z">
                                                             <rect key="frame" x="358" y="0.0" width="40" height="27.5"/>
                                                             <state key="normal" title="Share"/>
+                                                            <connections>
+                                                                <action selector="shareButtonTapped:" destination="R1b-6C-CeB" eventType="touchUpInside" id="Zpb-X6-qpy"/>
+                                                            </connections>
                                                         </button>
                                                     </subviews>
                                                 </stackView>
@@ -84,6 +90,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="noteLabel" destination="bli-3P-5PO" id="SDT-3n-D7h"/>
                                             <segue destination="ggU-Fh-mZm" kind="show" identifier="toDetail" id="jnc-HL-cax"/>
                                         </connections>
                                     </tableViewCell>
@@ -100,6 +107,10 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Quick Notes" id="FWx-IB-0Fk"/>
+                    <connections>
+                        <outlet property="noteTextView" destination="bsl-bm-npA" id="LXw-Ba-Gmk"/>
+                        <outlet property="notesTableView" destination="Auz-Gp-zlI" id="oIV-6l-Hds"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
